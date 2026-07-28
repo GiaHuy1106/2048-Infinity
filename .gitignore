@@ -105,3 +105,4 @@ InitTestScene*.unity*
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
 /2048 Infinity/Library
+/2048 Infinity/Temp
