@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   tileBoard: {fileID: 202402415}
-  gameOverBTN: {fileID: 1285986739}
+  gameOver: {fileID: 0}
   newGameBTN: {fileID: 763531206}
   scoreText: {fileID: 1297671848}
   highScoreText: {fileID: 1078051799}
@@ -1072,6 +1072,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447a4a40dd24ca046a22c59150d2404b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileCell
+--- !u!1 &746616563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746616564}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746616564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746616563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763531206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,3 +3808,4 @@ SceneRoots:
   - {fileID: 1712021364}
   - {fileID: 47521112}
   - {fileID: 146866260}
+  - {fileID: 746616564}
