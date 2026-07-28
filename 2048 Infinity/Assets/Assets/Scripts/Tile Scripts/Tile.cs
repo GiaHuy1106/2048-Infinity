@@ -39,10 +39,14 @@ public class Tile : MonoBehaviour
             this.cell.tile = null;
         }
 
+        AudioManager.Instance.PlayTileSpawn();
+
         this.cell = cell;
         this.cell.tile = this;
 
         transform.position = cell.transform.position; //
+
+        StartCoroutine(AnimatePopup());
     }
 
     public void MoveTo(TileCell cell)
@@ -52,10 +56,12 @@ public class Tile : MonoBehaviour
             this.cell.tile = null;
         }
 
+        AudioManager.Instance.PlayTileMove();
+
         this.cell = cell;
         this.cell.tile = this;
 
-        StartCoroutine(Animate(cell.transform.position, false));
+        StartCoroutine(AnimateMove(cell.transform.position, false));
     }
 
     public void Merged(TileCell cell)
@@ -65,13 +71,15 @@ public class Tile : MonoBehaviour
             this.cell.tile = null;
         }
 
+        AudioManager.Instance.PlayTileMerge();
+
         this.cell = null;
         cell.tile.locked = true;
 
-        StartCoroutine(Animate(cell.transform.position, true));
+        StartCoroutine(AnimateMove(cell.transform.position, true));
     }
 
-    private IEnumerator Animate(Vector3 to, bool merging)
+    private IEnumerator AnimateMove(Vector3 to, bool merging)
     {
         float elapsed = 0f;
         float duration = 0.1f;
@@ -91,5 +99,42 @@ public class Tile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator AnimatePopup()
+    {
+        float duration = 0.15f;
+
+        float elapsed = 0f;
+
+        transform.localScale = Vector3.zero;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            float t = elapsed / duration;
+
+            if (t < 0.6f)
+            {
+                transform.localScale = Vector3.Lerp(
+                    Vector3.zero,
+                    Vector3.one * 1.15f,
+                    t / 0.6f
+                );
+            }
+            else
+            {
+                transform.localScale = Vector3.Lerp(
+                    Vector3.one * 1.15f,
+                    Vector3.one,
+                    (t - 0.6f) / 0.4f
+                );
+            }
+
+            yield return null;
+        }
+
+        transform.localScale = Vector3.one;
     }
 }
