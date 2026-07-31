@@ -3,24 +3,25 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Game UI")]
-    public TileBoard tileBoard;
-    public CanvasGroup gameOver;
-    public GameObject newGameBTN;
+    [SerializeField] private TileBoard tileBoard;
+    [SerializeField] private CanvasGroup gameOver;
+    [SerializeField] private GameObject restartBTN;
 
     [Header("Score")]
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highScoreText;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
     private int score;
 
     private void Start()
     {
         NewGame();
-        newGameBTN.SetActive(true);
+        restartBTN.SetActive(true);
         AudioManager.Instance.PlayMusic();
     }
 
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
         gameOver.alpha = 0f;
         gameOver.interactable = false;
 
-        newGameBTN.SetActive(true);
+        restartBTN.SetActive(true);
 
         tileBoard.ClearBoard();
         tileBoard.CreateTile();
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
         }
 
         canvasGroup.alpha = to;
-        newGameBTN.SetActive(false);
+        restartBTN.SetActive(false);
     }
 
     public void IncreaseScore (int points)

@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip tileMove;
     [SerializeField] private AudioClip tileMerge;
     [SerializeField] private AudioClip gameOver;
-    [SerializeField] private AudioClip victory;
+    //[SerializeField] private AudioClip victory;
 
     private void Awake()
     {
@@ -83,6 +83,21 @@ public class AudioManager : MonoBehaviour
     public void PlayGameOver()
     {
         PlaySFX(gameOver);
+    }
+
+    #endregion
+
+    #region Music Setting
+
+    public void SetMusicVolume(float volume)
+    {
+        Debug.Log($"SetMusicVolume = {volume}");
+        musicSource.volume = volume;
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
     }
 
     #endregion
