@@ -9,17 +9,17 @@ public class GameManager : MonoBehaviour
 {
     [Header("Panel")]
     [SerializeField] private GameObject StartPanel;
-    [SerializeField] private float curtainPullDistance = 35f;
-    [SerializeField] private float curtainPullDuration = 0.12f;
-    [SerializeField] private float curtainFlyUpDistance = 900f;
-    [SerializeField] private float curtainFlyUpDuration = 0.45f;
+    private float curtainPullDistance = 35f;
+    private float curtainPullDuration = 0.12f;
+    private float curtainFlyUpDistance = 900f;
+    private float curtainFlyUpDuration = 0.45f;
 
     [Header("Number Icon Animation")]
     [SerializeField] private RectTransform[] numberIcons;
-    [SerializeField] private float numberIconPopDistance = 260f;
-    [SerializeField] private float numberIconHorizontalSpread = 55f;
-    [SerializeField] private float numberIconPopDuration = 0.42f;
-    [SerializeField] private float numberIconStagger = 0.05f;
+    private float numberIconPopDistance = 260f;
+    private float numberIconHorizontalSpread = 55f;
+    private float numberIconPopDuration = 0.42f;
+    private float numberIconStagger = 0.05f;
 
     [Header("Game UI")]
     [SerializeField] private TileBoard tileBoard;
